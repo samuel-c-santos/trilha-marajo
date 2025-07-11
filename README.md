@@ -34,7 +34,7 @@ meu-percurso/
 ```
 
 ## Como visualizar
-Acesse via: `https://samuel-c-santos.github.io/trilha-marajo`
+[Acesse aqui](https://samuel-c-santos.github.io/trilha-marajo)  
 
 ## Tecnologias
 
