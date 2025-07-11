@@ -4,7 +4,7 @@
 
 ![Banner do Evento](assets/banner.jpg)
 
-## 🗺️ Funcionalidades
+## Funcionalidades
 
 - Visualização do **percurso completo** com destaque para estrada de terra
 - Marcação dos **pontos de apoio** nos km 10, 20 e 32
@@ -12,7 +12,7 @@
 - Perfil de **elevação interativo** ao longo da trilha
 - Alternância entre múltiplas camadas base (Google Satélite, Relevo, OSM, CartoDB)
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 
@@ -33,26 +33,20 @@ meu-percurso/
 
 ```
 
-## 🚀 Como visualizar
+## Como visualizar
+Acesse via: `https://samuel-c-santos.github.io/trilha-marajo`
 
-Você pode abrir diretamente com [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) no VS Code ou publicar a pasta no **GitHub Pages**:
-
-1. Crie o repositório e envie todos os arquivos
-2. Vá em **Settings > Pages**
-3. Em **Source**, selecione a branch `main` e a pasta `/ (root)`
-4. Acesse via: `https://seu-usuario.github.io/nome-do-repositorio`
-
-## 🔧 Tecnologias
+## Tecnologias
 
 - [Leaflet.js](https://leafletjs.com/) – para mapas interativos
 - [Chart.js](https://www.chartjs.org/) – para perfil de elevação
 - GeoJSON – como formato padrão dos dados geográficos
 
-## 👤 Desenvolvido por
+## Desenvolvido por
 
 [Samuel Santos](https://samuel-c-santos.github.io/)  
 Desenvolvedor e coordenador do Núcleo de Geotecnologias – IDEFLOR-Bio  
-**Contato:** samuelcosta.eng@gmail.com
+**Contato:** samuelsantosambiental@gmail.com
 
 ---
 
