@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>IV Trilha Cicloturística do Marajó</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <!-- Leaflet e Chart.js -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-bottom: 2px solid #ddd;
+      padding: 10px 20px;
+      height: 70px;
+    }
+
+    header img.logo {
+      height: 80px;
+      margin-right: 20px;
+    }
+
+    header .title {
+      flex: 1;
+      text-align: center;
+      font-family: 'Anton', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fd6d00;
+    }
+
+    .main-content {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 340px;
+      background: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      border-right: 1px solid #ccc;
+    }
+
+    .sidebar img.banner {
+      width: 100%;
+      display: block;
+    }
+
+    .sidebar .content {
+      padding: 20px;
+    }
+
+    .sidebar h1 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .metrics {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .metrics div {
+      margin-bottom: 5px;
+    }
+
+    .sidebar button {
+      width: 100%;
+      background: orange;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .legenda {
+      margin-top: 20px;
+      font-size: 13px;
+    }
+
+    #main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #map {
+      flex: 1;
+      width: 100%;
+    }
+
+    #elevation-profile {
+      height: 150px;
+      padding: 10px;
+      background: #fff;
+      border-top: 1px solid #ccc;
+    }
+
+    #elevationChart {
+      width: 100%;
+      height: 100%;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+      padding: 6px;
+      background: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    footer a {
+      color: #666;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topo -->
+  <header>
+    <img src="assets/logo.png" alt="Logo IDEFLOR-Bio" class="logo" />
+    <div class="title">
+      🚵 IV Trilha Cicloturística do Marajó · 📍 Salvaterra · 🗓️ 19 e 20 de julho
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <div class="main-content">
+
+    <!-- Lateral -->
+    <div class="sidebar">
+      <img src="assets/banner.jpg" alt="Banner do evento" class="banner" />
+      <div class="content">
+        <h1>Detalhes da Trilha</h1>
+        <div class="metrics">
+          <div>🚴‍♀️ <strong>40 km</strong> de trilha</div>
+          <div>⏱️ <strong>1h 42min</strong> de duração</div>
+          <div>⛰️ <strong>102 m</strong> de elevação</div>
+          <div>🛑 Pontos de apoio: km 10, 20 e 32</div>
+        </div>
+        <a
+          href="https://strava.app.link/cLiaUa83sqb?%24fallback_url=https%3A%2F%2Fstrava.com%2Factivities%2F15051595178%2Foverview%3Futm_medium%3Dweb_embed%26utm_source%3Dactivity_embed&strava_deeplink_url=strava%3A%2F%2Factivities%2F15051595178"
+          target="_blank"
+        >
+          <button>Ver no Strava</button>
+        </a>
+
+        <div class="legenda">
+        <strong>Legenda:</strong><br />
+        <span style="color: orange">■</span> Estrada de terra (Percurso)<br />
+        <img src="assets/saida.png" alt="Saída" style="height: 16px; vertical-align: middle; margin-right: 4px;"> Saída<br />
+        <img src="assets/chegada.png" alt="Chegada" style="height: 16px; vertical-align: middle; margin-right: 4px;"> Chegada<br />
+        <span style="display:inline-block; width: 14px; height: 14px; background: yellow; border: 1px solid black; border-radius: 50%; vertical-align: middle; margin-right: 4px;"></span> Ponto de Apoio
+        </div>
+      </div>
+    </div>
+
+    <!-- Mapa e gráfico -->
+    <div id="main">
+      <div id="map"></div>
+      <div id="elevation-profile">
+        <canvas id="elevationChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    Desenvolvido por <a href="https://samuel-c-santos.github.io/" target="_blank">Samuel Santos</a>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+
+</body>
+</html>
