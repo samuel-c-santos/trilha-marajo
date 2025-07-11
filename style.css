@@ -1,75 +1,130 @@
+/* === Reset e base === */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === Cabeçalho === */
+.header {
+  background-color: #fff;
+  border-bottom: 2px solid #ddd;
+  padding: 10px 20px;
+}
+
+.header-content {
   display: flex;
-  flex-direction: row;
-  height: 100vh;
-  overflow: hidden;
+  align-items: center;
+  gap: 10px;
 }
 
-.sidebar {
-  width: 320px;
-  padding: 20px;
-  background: #f7f7f7;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  overflow-y: auto;
+.logo {
+  height: 36px;
+  flex-shrink: 0;
 }
 
-.sidebar h1 {
-  font-size: 20px;
-  margin-bottom: 10px;
+.title {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fd6d00;
+  line-height: 1.2;
+  flex: 1;
 }
 
-.sidebar .metrics {
-  margin: 10px 0;
-  font-size: 14px;
-}
-
-.sidebar .metrics div {
-  margin-bottom: 4px;
-}
-
-.sidebar button {
+/* === Conteúdo principal === */
+.main-content {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  background: orange;
+}
+
+/* === Seção lateral === */
+.info-section {
+  background: #f7f7f7;
+}
+
+.banner {
+  width: 100%;
+  display: block;
+}
+
+.info-content {
+  padding: 20px;
+}
+
+.info-content h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.metrics {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.metrics div {
+  margin-bottom: 5px;
+}
+
+.strava-button {
+  width: 100%;
+  background-color: orange;
   color: white;
   font-weight: bold;
   padding: 10px;
   border: none;
-  margin-top: 10px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
-.sidebar button:hover {
-  background: darkorange;
-}
-
-.sidebar .legenda {
+.legenda {
   margin-top: 20px;
   font-size: 13px;
 }
 
-.sidebar .legenda span {
+.icon {
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.apoio-dot {
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin-right: 6px;
+  width: 14px;
+  height: 14px;
+  background: yellow;
+  border: 1px solid black;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 4px;
 }
 
-#main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-#map {
-  flex: 1;
+/* === Mapa e gráfico === */
+.map-section {
   width: 100%;
 }
 
-#elevation-profile {
-  height: 150px;
+#map {
+  width: 100%;
+  height: 300px;
+}
+
+.chart-section {
+  width: 100%;
+  height: 200px;
   padding: 10px;
   background: #fff;
   border-top: 1px solid #ccc;
@@ -80,3 +135,67 @@ body {
   height: 100%;
 }
 
+/* === Rodapé === */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  padding: 10px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.footer a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* === Layout Desktop (≥768px) === */
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+    height: calc(100vh - 120px); /* header + footer */
+    overflow: hidden;
+  }
+
+  .info-section {
+    width: 340px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    height: 100%;
+    border-right: 1px solid #ccc;
+  }
+
+  .map-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  #map {
+    flex: 1;
+    height: auto;
+  }
+
+  .chart-section {
+    height: 150px;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
+
+.header-content {
+  justify-content: center;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
